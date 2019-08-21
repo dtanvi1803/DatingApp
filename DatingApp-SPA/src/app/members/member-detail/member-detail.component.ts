@@ -38,15 +38,15 @@ export class MemberDetailComponent implements OnInit {
   }
   getImages() {
     const imageUrls = [];
-    for (let i = 0; i<this.user.photos.length; i++) {
+    for (let i = 0; i <this.user.photos.length; i++) {
       imageUrls.push({
         small: this.user.photos[i].url,
         medium: this.user.photos[i].url,
         big: this.user.photos[i].url,
         description: this.user.photos[i].description
       });
-      return imageUrls;
     }
+    return imageUrls;
   }
   // loadUser() {
   //   this.userService.getUser(+this.route.snapshot.params['id']).subscribe((user: User) => {
