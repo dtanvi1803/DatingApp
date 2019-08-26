@@ -5,6 +5,7 @@
     opacity: 0.7;
 }
 .card img {
+    max-height: 100px;
     transform: scale(1.0, 1.0);
     transition-duration: 500ms;
     transition-timing-function: ease-out;
