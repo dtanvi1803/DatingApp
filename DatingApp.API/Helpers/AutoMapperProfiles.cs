@@ -32,6 +32,12 @@ namespace DatingApp.API.Helpers
                 .ForMember(dest => dest.DateOfBirth, opt => {
                     opt.MapFrom(src => src.DateOfBirth.ToLocalTime());
                 });
+            CreateMap<MessageForCreatingDTO, Message>().ReverseMap();
+            CreateMap<Message, MessageToReturnDTO>()
+                .ForMember(m => m.SenderPhotoUrl, opt => opt
+                    .MapFrom(u => u.Sender.Photos.FirstOrDefault(p => p.IsMain).Url))
+                .ForMember(m => m.RecipientPhotoUrl, opt => opt
+                    .MapFrom(u => u.Recipient.Photos.FirstOrDefault(p => p.IsMain).Url));
         }
         
     }
