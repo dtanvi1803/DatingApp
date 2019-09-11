@@ -24,8 +24,8 @@ newMessage: any = {};
     const currentUserId = +this.authService.decodeToken.nameid;
     this.userService.getMessageThread(this.authService.decodeToken.nameid, this.recipientId)
       .pipe(
-        .tap(messages => {
-          for (let i =0; i< messages.length; i ++){
+        tap(messages => {
+          for (let i = 0; i< messages.length; i ++){
             if (messages[i].isRead === false && messages[i].recipientId === currentUserId) {
               this.userService.markAsRead(currentUserId, messages[i].id);
             }
